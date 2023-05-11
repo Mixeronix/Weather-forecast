@@ -1,4 +1,4 @@
-import DetailedWeather from "./detailedWeather";
+import WeatherCard from "./weatherCard";
 import getData from "@/components/featchData";
 
 export default async function Home() {
@@ -6,8 +6,8 @@ export default async function Home() {
 	const weatherData: Array<object> = await getData();
 
 	return (
-		<>
-			<DetailedWeather weatherData={weatherData[day]} />
-		</>
+		<main className="h-screen w-full bg-blue-950">
+			<WeatherCard weatherData={weatherData[day]} />
+		</main>
 	);
 }
