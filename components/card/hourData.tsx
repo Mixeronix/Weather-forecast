@@ -17,13 +17,11 @@ type weatherType = {
 };
 
 export default function HourData(props: any) {
-	const [selected, setSelected] = useState(0);
-
 	const weather: weatherType = props.weather;
-	const date: Date = new Date();
-	const hours = date.getHours();
+	const hour = props.hour;
+	const [selected, setSelected] = useState(hour);
 
-	const hourData = weather.temps.slice(hours, hours + 7);
+	const hourData = weather.temps.slice(hour, hour + 7);
 
 	return (
 		<div className="w-full bottom-0 absolute rounded-3xl flex">
@@ -35,12 +33,12 @@ export default function HourData(props: any) {
                     `}
 					onClick={() => {
 						setSelected(index);
-						props.changeHour(index + hours);
+						props.changeHour(index + hour);
 					}}
 				>
-					<Image src={ReturnIcon(weather.weathercodes[index])} alt="" width={50} height={50} />
+					<Image src={ReturnIcon(weather.weathercodes[index + hour], index + hour)} alt="" width={50} height={50} />
 
-					<span className="mt-3">{index + hours}:00</span>
+					<span className="mt-3">{index + hour}:00</span>
 					<span className="mb-3">{date}°</span>
 				</div>
 			))}

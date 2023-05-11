@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import ReturnIcon from "../returnIcon";
-import GetCurrentWeather, { GetWeatherAtTime } from "../returnCurrentWeather";
+import GetWeatherAtTime from "../returnCurrentWeather";
 
 type weatherType = {
 	date: string;
@@ -20,7 +20,7 @@ type displayedWeather = { temp: number; apparentTemp: number; wind: number; weat
 export default function WeatherOfDay(props: any) {
 	const weather: weatherType = props.weather;
 
-	const weatherToDisplay: displayedWeather = GetWeatherAtTime(weather, props.hour);
+	const weatherToDisplay: displayedWeather = GetWeatherAtTime(weather, props.displayedHour);
 
 	return (
 		<div className=" text-white top-1/2 absolute -translate-y-2/3  w-full ">
@@ -32,11 +32,11 @@ export default function WeatherOfDay(props: any) {
 
 			{/* Icon with date */}
 			<div className="flex justify-center -mt-8">
-				<Image width={300} height={300} alt="" src={ReturnIcon(weatherToDisplay.weatherCode)} />
+				<Image width={300} height={300} alt="" src={ReturnIcon(weatherToDisplay.weatherCode, props.displayedHour)} />
 			</div>
 
 			{/* Icon with date */}
-			<div className="flex gap-x-8  mt-8 justify-center text-sm">
+			<div className="flex gap-x-8 mt-8 justify-center text-md">
 				<span className="">Feels like: {weatherToDisplay.apparentTemp}°</span>
 				<span className="">Wind speed: {weatherToDisplay.wind} km/h</span>
 			</div>
