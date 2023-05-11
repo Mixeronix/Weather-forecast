@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import ReturnIcon from "../returnIcon";
+import GetCurrentWeather from "../returnCurrentTemp";
 
 type weatherType = {
 	date: string;
@@ -37,8 +38,8 @@ export default function WeatherOfDay(props: any) {
 
 			{/* Temperature */}
 			<div className="flex justify-center">
-				<h1 className="text-9xl  ">{weather.temperatureAvg}</h1>
-				<span className="text-4xl  font-light">°C</span>
+				<h1 className="text-9xl">{GetCurrentWeather(weather.temps)}</h1>
+				<span className="text-4xl font-light">°C</span>
 			</div>
 
 			{/* Place */}

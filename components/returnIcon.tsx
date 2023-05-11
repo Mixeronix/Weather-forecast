@@ -1,9 +1,11 @@
 export default function ReturnIcon(code: number): string {
 	let prefix: string = "";
 
-	const hour: Date = new Date();
+	const date: Date = new Date();
+	const hour = date.getHours();
+
 	if (code < 3) {
-		if (hour.getHours() < 6 && hour.getHours() > 0) prefix = "n-";
+		if (hour < 6 && hour > 0) prefix = "n-";
 		else prefix = "d-";
 	}
 
