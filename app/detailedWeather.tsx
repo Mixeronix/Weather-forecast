@@ -6,7 +6,7 @@ export default function DetailedWeather(props: any) {
 	return (
 		<div className="w-5/12 ms-auto h-screen bg-detailedWeather bg-cover relative ">
 			<TemparatureGraph />
-			<WeatherOfDay weather={props.weatherData} />
+			<WeatherOfDay weather={props.weatherData} place="Czestochowa, Polska" />
 		</div>
 	);
 }

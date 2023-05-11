@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-// import weatherImage from "@/public/icons/71.svg";
+import ReturnIcon from "../returnIcon";
 
 type weatherType = {
 	date: string;
@@ -24,18 +24,11 @@ export default function WeatherOfDay(props: any) {
 	const date = todaysDate.getDate();
 	const day = todaysDate.getDay();
 
-	let prefix: string = "";
-	const hour: Date = new Date();
-	if (weather.weathercode < 3) {
-		if (hour.getHours() < 6 && hour.getHours() > 0) prefix = "n-";
-		else prefix = "d-";
-	}
-	console.log(prefix);
 	return (
 		<div className=" mx-auto w-fit pt-2 sm:pt-4 lg:pt-8 xl:pt-12  text-white">
 			{/* Icon with date */}
 			<div className="flex mb-11 space-x-3 justify-center">
-				<Image width={90} height={90} alt="" src={`/icons/${prefix != "" ? prefix + weather.weathercode : weather.weathercode}.svg`} />
+				<Image width={90} height={90} alt="" src={ReturnIcon(weather.weathercode)} />
 				<div className="flex flex-col justify-center ">
 					<span className="text-3xl">Today</span>
 					<span className="text-xl">{daysNames[day] + ", " + date + " " + monthNames[month]}</span>
@@ -48,8 +41,11 @@ export default function WeatherOfDay(props: any) {
 				<span className="text-4xl  font-light">°C</span>
 			</div>
 
+			{/* Place */}
+			<div className="mt-12 text-center">{props.place}</div>
+
 			{/* Wind and temperature */}
-			<div className="flex mt-14 gap-x-6">
+			<div className="flex mt-8  gap-x-6">
 				<span>UV Index {weather.uv}</span>
 				&#x2022;
 				<span>Wind speed {weather.windspeed} km/h</span>
