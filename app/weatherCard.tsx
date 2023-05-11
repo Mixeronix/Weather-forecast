@@ -5,15 +5,14 @@ import HourData from "@/components/card/hourData";
 import React, { useState, useEffect } from "react";
 
 export default function WeatherCard(props: any) {
-	const [displayedHour, setDisplayedHour] = useState(0);
-	const [currentHour, setCurrentHour] = useState(0);
+	const date: Date = new Date();
+	const [displayedHour, setDisplayedHour] = useState(date.getHours());
+	const [currentHour, setCurrentHour] = useState(date.getHours());
 
 	useEffect(() => {
-		const date: Date = new Date();
-		var hours = date.getHours();
+		const newDate: Date = new Date();
 
-		setCurrentHour(hours);
-		setDisplayedHour(hours);
+		setCurrentHour(newDate.getHours());
 	}, []);
 
 	function changeHour(hour: number) {
@@ -21,9 +20,13 @@ export default function WeatherCard(props: any) {
 	}
 
 	return (
-		<div className="aspect-9/16 h-3/4 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 rounded-3xl bg-blue-500">
-			<Data weather={props.weatherData} place="Czestochowa, Polska" displayedHour={displayedHour} />
-			<HourData weather={props.weatherData} changeHour={changeHour} hour={currentHour} />
+		<div
+			className={`aspect-9/16 h-3/4 absolute top-0 left-0 bottom-0 right-0 m-auto inset-auto rounded-3xl bg-blue-500 transition-all
+			${props.index > props.show ? "translate-x-full scale-50 blur-sm" : ""} ${props.index < props.show ? "-translate-x-full scale-50 blur-sm" : ""}`}
+		>
+			<Data weather={props.weatherData} place="Czestochowa, Polska" displayedHour={displayedHour} mainView={props.index == props.show} />
+
+			{props.index == props.show && props.index == 0 ? <HourData weather={props.weatherData} changeHour={changeHour} hour={currentHour} /> : null}
 		</div>
 	);
 }
