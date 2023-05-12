@@ -23,21 +23,26 @@ export default function WeatherOfDay(props: any) {
 	const weatherToDisplay: displayedWeather = GetWeatherAtTime(weather, props.displayedHour);
 
 	return (
-		<div className=" text-white top-1/2 absolute -translate-y-2/3  w-full ">
-			<h1>{weather.date}</h1>
+		<div className="text-white mt-5">
 			{/* Temperature */}
 			<div className="flex justify-center mt-10 font-extrabold">
-				<h1 className="text-8xl">{weatherToDisplay.temp}</h1>
+				<h1 className="text-7xl">{weatherToDisplay.temp}</h1>
 				<span className="text-4xl font-light">°</span>
 			</div>
 
 			{/* Icon with date */}
-			<div className="flex justify-center -mt-8">
-				<Image width={300} height={300} alt="" src={ReturnIcon(weatherToDisplay.weatherCode, props.displayedHour)} />
+			<div className="flex justify-center ">
+				<Image
+					width={250}
+					height={250}
+					alt="Weather icon"
+					className="scale-75 sm:scale-90 md:scale-95 lg:scale-100"
+					src={ReturnIcon(weatherToDisplay.weatherCode, props.displayedHour)}
+				/>
 			</div>
 
 			{/* Icon with date */}
-			<div className="flex gap-x-8 mt-8 justify-center text-md">
+			<div className="flex gap-x-8 justify-center text-md">
 				<span className="">Feels like: {weatherToDisplay.apparentTemp}°</span>
 				<span className="">Wind speed: {weatherToDisplay.wind} km/h</span>
 			</div>

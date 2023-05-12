@@ -18,7 +18,7 @@ type weatherType = [
 ];
 
 export default function CardsContainer(props: any) {
-	const [day, setDay] = useState(0);
+	const [day, setDay] = useState(14);
 	const weatherData: weatherType = props.weatherData;
 
 	function handleNext() {
@@ -42,11 +42,11 @@ export default function CardsContainer(props: any) {
 				<WeatherCard weatherData={data} index={index} show={day} key={index} />
 			))}
 
-			<button onClick={handleNext} className="text-white text-lg mr-10">
-				next
-			</button>
-			<button onClick={handlePrev} className="text-white text-lg">
+			<button onClick={handlePrev} className="text-white text-lg mr-10">
 				prev
+			</button>
+			<button onClick={handleNext} className="text-white text-lg">
+				next
 			</button>
 		</>
 	);

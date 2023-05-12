@@ -4,7 +4,7 @@ module.exports = {
 	theme: {
 		extend: {
 			aspectRatio: {
-				"9/16": "9/12",
+				"5/6": "5/6",
 			},
 			colors: { darkBlue: "#110e3c", current: "currentColor" },
 			backgroundImage: {
@@ -13,6 +13,9 @@ module.exports = {
 			},
 			backgroundImage: {
 				detailedWeather: 'url("./../public/background.png")',
+			},
+			maxHeight: {
+				"2/3": "66.666%",
 			},
 		},
 	},
