@@ -26,7 +26,7 @@ export default function WeatherOfDay(props: any) {
 		<div className="text-white mt-5">
 			{/* Temperature */}
 			<div className="flex justify-center mt-10 font-extrabold">
-				<h1 className="text-5xl md:text-6xl lg:text-7xl">{weatherToDisplay.temp}</h1>
+				<h1 className="text-6xl lg:text-7xl xl:text-8xl">{weatherToDisplay.temp}</h1>
 				<span className="text-4xl font-light">°</span>
 			</div>
 
@@ -36,7 +36,7 @@ export default function WeatherOfDay(props: any) {
 					width={250}
 					height={250}
 					alt="Weather icon"
-					className="scale-50 sm:scale-75 md:scale-90 lg:scale-100"
+					className="scale-75 sm:scale-90 md:scale-95 lg:scale-100"
 					src={ReturnIcon(weatherToDisplay.weatherCode, props.displayedHour)}
 				/>
 			</div>
