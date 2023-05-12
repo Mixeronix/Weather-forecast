@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import WeatherCard from "./weatherCard";
+import WeatherCard from "@/components/card/weatherCard";
+import React, { useState } from "react";
 
 type weatherType = [
 	{

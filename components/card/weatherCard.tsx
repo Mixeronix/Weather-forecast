@@ -5,11 +5,23 @@ import HourData from "@/components/card/hourData";
 import MinMaxTemp from "@/components/card/minMaxTemp";
 import React, { useState, useEffect } from "react";
 
+type weatherType = {
+	date: string;
+	temperatureAvg: number;
+	temperatureMax: number;
+	temperatureMin: number;
+	weathercode: number;
+	windSpeed: number[];
+	apparentTemp: number[];
+	temps: number[];
+	weathercodes: number[];
+};
+
 export default function WeatherCard(props: any) {
 	const date: Date = new Date();
 	const [displayedHour, setDisplayedHour] = useState(date.getHours());
 	const [currentHour, setCurrentHour] = useState(date.getHours());
-	const weatherData: object = props.weatherData;
+	const weatherData: weatherType = props.weatherData;
 	useEffect(() => {
 		const newDate: Date = new Date();
 

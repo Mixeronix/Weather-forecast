@@ -10,11 +10,11 @@ type weatherType = {
 	weathercodes: number[];
 };
 
-export default function GetWeatherAtTime(weather: weatherType, hour: number): { temp: number; apparentTemp: number; wind: number; weatherCode: number } {
+export default function GetWeatherAtTime(weather: weatherType, hour: number): { temp: number; apparentTemp: number; wind: number; weathercode: number } {
 	return {
 		temp: weather.temps[hour],
 		apparentTemp: weather.apparentTemp[hour],
 		wind: weather.windSpeed[hour],
-		weatherCode: weather.weathercodes[hour],
+		weathercode: weather.weathercodes[hour],
 	};
 }

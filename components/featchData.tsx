@@ -50,7 +50,7 @@ export default async function getData() {
 
 		data[index] = {
 			date: d,
-			temperatureAvg: Math.round(temps.reduce((partialSum, a) => partialSum + a, 0) / 24),
+			temperatureAvg: Math.round((temps.reduce((partialSum, a) => partialSum + a, 0) / 24) * 10) / 10,
 			temperatureMax: tempData.daily.temperature_2m_max[index],
 			temperatureMin: tempData.daily.temperature_2m_min[index],
 			weathercode: tempData.daily.weathercode[index],

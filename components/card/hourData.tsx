@@ -25,7 +25,6 @@ export default function HourData(props: any) {
 
 	function handleCount() {
 		if (window.innerWidth > 2200) {
-			console.log(window.innerWidth);
 			setCount(15);
 		} else if (window.innerWidth > 2000) {
 			setCount(12);

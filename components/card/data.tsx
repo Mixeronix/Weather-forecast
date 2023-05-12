@@ -15,7 +15,7 @@ type weatherType = {
 	weathercodes: number[];
 };
 
-type displayedWeather = { temp: number; apparentTemp: number; wind: number; weatherCode: number };
+type displayedWeather = { temp: number; apparentTemp: number; wind: number; weathercode: number };
 
 export default function WeatherOfDay(props: any) {
 	const weather: weatherType = props.weather;
@@ -48,7 +48,7 @@ export default function WeatherOfDay(props: any) {
 				height={250}
 				alt="Weather icon"
 				className="scale-50 mx-auto -mt-12 md:my-0 -mb-10 sm:scale-75 md:scale-90 lg:scale-100"
-				src={ReturnIcon(weatherToDisplay.weatherCode, props.displayedHour)}
+				src={ReturnIcon(weatherToDisplay.weathercode, props.displayedHour)}
 			/>
 
 			{/* Icon with date */}
