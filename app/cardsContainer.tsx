@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import WeatherCard from "./weatherCard";
 
 type weatherType = [
@@ -37,17 +37,17 @@ export default function CardsContainer(props: any) {
 	}
 
 	return (
-		<>
+		<div>
+			<button onClick={handlePrev} className="text-white text-lg absolute left-0 bottom-5 md:top-1/2 md:-translate-y-1/4">
+				prev
+			</button>
 			{weatherData.map((data, index) => (
 				<WeatherCard weatherData={data} index={index} show={day} key={index} />
 			))}
 
-			<button onClick={handlePrev} className="text-white text-lg mr-10">
-				prev
-			</button>
-			<button onClick={handleNext} className="text-white text-lg">
+			<button onClick={handleNext} className="text-white text-lg absolute bottom-5 right-0 md:top-1/2 md:-translate-y-1/4">
 				next
 			</button>
-		</>
+		</div>
 	);
 }
