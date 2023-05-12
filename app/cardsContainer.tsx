@@ -18,13 +18,12 @@ type weatherType = [
 ];
 
 export default function CardsContainer(props: any) {
-	const [day, setDay] = useState(14);
 	const weatherData: weatherType = props.weatherData;
 
 	return (
 		<div>
 			{weatherData.map((data, index) => (
-				<WeatherCard weatherData={data} index={index} show={day} key={index} />
+				<WeatherCard weatherData={data} index={index} show={props.day} key={index} />
 			))}
 		</div>
 	);

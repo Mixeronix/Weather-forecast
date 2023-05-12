@@ -1,7 +1,5 @@
-"use client";
-
 import DateCard from "@/components/date/dateCard";
-import React, { useState } from "react";
+import React from "react";
 
 type weatherType = [
 	{
@@ -18,19 +16,14 @@ type weatherType = [
 ];
 
 export default function DatesContainer(props: any) {
-	const [day, setDay] = useState(14);
 	const date: Date = new Date();
 
 	const weatherData: weatherType = props.weatherData;
 
-	function handleDayChange(newDay: number) {
-		setDay(newDay);
-	}
-
 	return (
 		<section className="bottom-0 absolute w-screen h-fit">
 			{weatherData.map((data, index) => (
-				<DateCard weatherData={data} index={index} show={day} key={index} hour={date.getHours()} handleDayChange={handleDayChange} />
+				<DateCard weatherData={data} index={index} show={props.day} key={index} hour={date.getHours()} handleDayChange={props.handleDayChange} />
 			))}
 		</section>
 	);
