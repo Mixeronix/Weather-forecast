@@ -24,6 +24,7 @@ export default function WeatherOfDay(props: any) {
 
 	return (
 		<div className=" text-white top-1/2 absolute -translate-y-2/3  w-full ">
+			<h1>{weather.date}</h1>
 			{/* Temperature */}
 			<div className="flex justify-center mt-10 font-extrabold">
 				<h1 className="text-8xl">{weatherToDisplay.temp}</h1>
