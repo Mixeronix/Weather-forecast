@@ -2,7 +2,7 @@ import WeatherCard from "./weatherCard";
 import getData from "@/components/featchData";
 
 export default async function Home() {
-	var day = 3;
+	var day = 0;
 
 	const weatherData: Array<object> = await getData();
 	weatherData.reverse();

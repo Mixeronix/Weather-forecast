@@ -21,20 +21,21 @@ export default function HourData(props: any) {
 	const hour = props.hour;
 	const [selected, setSelected] = useState(hour);
 
-	const hourData = weather.temps.slice(hour, hour + 7);
+	const hourData = weather.temps.slice(hour, hour + 6);
 
 	return (
 		<div className="w-full bottom-0 absolute rounded-3xl flex">
 			{hourData.map((date, index) => (
 				<div
 					className={`flex-1 flex flex-col text-lg place-items-center text-white transition-all bg-gradient-to-t pt-2
-                    ${index == 0 ? "rounded-bl-3xl" : ""} ${index == 6 ? "rounded-br-3xl" : ""} 
+                    ${index == 0 ? "rounded-bl-3xl" : ""} ${index == hourData.length - 1 ? "rounded-br-3xl" : ""} 
                     ${selected == index ? "from-blue-200/[0.6] to-blue-200/[0.2]" : "hover:from-blue-200/[0.3] hover:to-blue-200/[0]"}
                     `}
 					onClick={() => {
 						setSelected(index);
 						props.changeHour(index + hour);
 					}}
+					key={index}
 				>
 					<Image src={ReturnIcon(weather.weathercodes[index + hour], index + hour)} alt="" width={50} height={50} />
 

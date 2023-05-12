@@ -1,3 +1,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.gradient-background {
+	background: linear-gradient(90deg, rgba(0, 39, 152, 1) 5%, rgba(0, 242, 255, 1) 35%, rgba(0, 255, 111, 1) 50%, rgba(246, 227, 0, 1) 65%, rgba(255, 0, 0, 1) 95%);
+}
+
+.end:after,
+.end:before,
+.start:after,
+.start::before {
+	content: "";
+	position: absolute;
+	background: transparent;
+
+	width: 1rem;
+
+	bottom: 0;
+	height: 0.5rem;
+}
+
+.start:after,
+.start::before {
+	box-shadow: -0.5rem 0 0 0 rgb(55 65 81 / var(--tw-bg-opacity));
+	right: -1rem;
+}
+
+.end:after,
+.end::before {
+	left: -1rem;
+	box-shadow: 0.5rem 0 0 0 rgb(55 65 81 / var(--tw-bg-opacity));
+}
+
+.start:after {
+	top: 0;
+	border-top-left-radius: 0.5rem;
+}
+.start::before {
+	bottom: 0;
+	border-bottom-left-radius: 0.5rem;
+}
+
+.end:after {
+	top: 0;
+	border-top-right-radius: 0.5rem;
+}
+.end::before {
+	bottom: 0;
+	border-bottom-right-radius: 0.5rem;
+}
