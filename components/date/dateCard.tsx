@@ -24,17 +24,13 @@ export default function DateCard(props: any) {
 
 	return (
 		<div
-			className="w-24 h-24 mb-4 bg-gradient-to-b hover:from-blue-200/[0.25] hover:to-blue-200/[0.1] rounded-lg flex flex-col justify-center absolute top-0 left-0 bottom-0 right-0 m-auto"
-			style={{ transform: `translate(${100 * (props.index - props.show)}%)`, opacity: `${100 - Math.abs(props.index - props.show) * 20}%` }}
+			onClick={() => props.handleDayChange(props.index)}
+			className={`w-28 sm:w-24 h-12 sm:h-24 mb-1 sm:mb-3 lg:mb-4 bg-gradient-to-b align-middle items-center transition-all duration-500 rounded-lg flex flex-row sm:flex-col justify-center absolute top-0 left-0 bottom-0 right-0 m-auto 
+            ${props.index == props.show ? "from-blue-200/[0.5] to-blue-200/[0.3]" : "hover:from-blue-200/[0.25] hover:to-blue-200/[0.1]"}`}
+			style={{ transform: `translate(${105 * (props.index - props.show)}%)`, opacity: `${100 - Math.abs(props.index - props.show) * 20}%` }}
 		>
-			<Image
-				width={50}
-				height={50}
-				alt="Weather icon"
-				className="scale-50 mx-auto -mt-12 md:my-0 -mb-10 sm:scale-75 md:scale-90 lg:scale-100"
-				src={ReturnIcon(weatherData.weathercode, props.hours)}
-			/>
-			<span className="text-white text-center text-xl font-bold">{day + " " + monthNames[month]}</span>
+			<Image width={50} height={50} alt="Weather icon" className="scale-50 -mx-2 sm:mx-auto" src={ReturnIcon(weatherData.weathercode, props.hours)} />
+			<span className="text-white text-center text-md sm:text-lg font-medium">{props.index == 14 ? "Today" : day + " " + monthNames[month]}</span>
 		</div>
 	);
 }

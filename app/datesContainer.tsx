@@ -23,10 +23,14 @@ export default function DatesContainer(props: any) {
 
 	const weatherData: weatherType = props.weatherData;
 
+	function handleDayChange(newDay: number) {
+		setDay(newDay);
+	}
+
 	return (
 		<section className="bottom-0 absolute w-screen h-fit">
 			{weatherData.map((data, index) => (
-				<DateCard weatherData={data} index={index} show={day} key={index} hour={date.getHours()} />
+				<DateCard weatherData={data} index={index} show={day} key={index} hour={date.getHours()} handleDayChange={handleDayChange} />
 			))}
 		</section>
 	);
