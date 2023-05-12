@@ -20,37 +20,39 @@ export default function HourData(props: any) {
 	const weather: weatherType = props.weather;
 	const hour = props.hour;
 	const [selected, setSelected] = useState(0);
-	const [count, setCount] = useState(window.innerWidth);
+	const [count, setCount] = useState(0);
+	const [visible, setVisible] = useState(false);
+
+	function handleCount() {
+		if (window.innerWidth > 2200) {
+			console.log(window.innerWidth);
+			setCount(15);
+		} else if (window.innerWidth > 2000) {
+			setCount(12);
+		} else if (window.innerWidth > 1600) {
+			setCount(10);
+		} else if (window.innerWidth > 1200) {
+			setCount(7);
+		} else if (window.innerWidth > 800) {
+			setCount(6);
+		} else if (window.innerWidth > 600) {
+			setCount(5);
+		} else {
+			setCount(4);
+		}
+	}
 
 	useEffect(() => {
 		window.addEventListener("resize", handleCount);
-
+		handleCount();
+		setVisible(true);
 		return () => window.removeEventListener("resize", handleCount);
-
-		function handleCount() {
-			if (window.innerWidth > 2200) {
-				console.log(window.innerWidth);
-				setCount(15);
-			} else if (window.innerWidth > 2000) {
-				setCount(12);
-			} else if (window.innerWidth > 1600) {
-				setCount(10);
-			} else if (window.innerWidth > 1200) {
-				setCount(7);
-			} else if (window.innerWidth > 800) {
-				setCount(6);
-			} else if (window.innerWidth > 600) {
-				setCount(5);
-			} else {
-				setCount(4);
-			}
-		}
 	}, []);
 
 	const hourData = weather.temps.slice(hour, hour + count);
 
 	return (
-		<div className="w-full bottom-0 absolute rounded-3xl flex">
+		<div className={`w-full bottom-0 absolute rounded-3xl flex transition-all duration-500 ${visible ? "opacity-100 blur-0" : "opacity-0 blur-3xl"}`}>
 			{hourData.map((date, index) => (
 				<div
 					className={`flex-1 flex flex-col text-md place-items-center text-white transition-all bg-gradient-to-t pt-2

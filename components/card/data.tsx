@@ -22,13 +22,24 @@ export default function WeatherOfDay(props: any) {
 
 	const weatherToDisplay: displayedWeather = GetWeatherAtTime(weather, props.displayedHour);
 
+	const todaysDate = new Date(weather.date);
+	const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+	const daysNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+	const month = todaysDate.getMonth();
+	const date = todaysDate.getDate();
+	const day = todaysDate.getDay();
+
 	return (
-		<div className="text-white">
+		<div className="text-white relative block">
 			{/* Temperature */}
 			<div className="flex justify-center mt-10 font-extrabold">
 				<h1 className="text-5xl sm:text-6xl lg:text-7xl">{weatherToDisplay.temp}</h1>
 				<span className="text-4xl font-light">°</span>
 			</div>
+
+			{/* Date */}
+			<div className="text-sm mt-1 flex w-full justify-center font-light">{daysNames[day] + ", " + date + " " + monthNames[month]}</div>
 
 			{/* Icon with date */}
 
