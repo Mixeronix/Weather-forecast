@@ -23,26 +23,25 @@ export default function WeatherOfDay(props: any) {
 	const weatherToDisplay: displayedWeather = GetWeatherAtTime(weather, props.displayedHour);
 
 	return (
-		<div className="text-white mt-5">
+		<div className="text-white">
 			{/* Temperature */}
 			<div className="flex justify-center mt-10 font-extrabold">
-				<h1 className="text-7xl">{weatherToDisplay.temp}</h1>
+				<h1 className="text-5xl sm:text-6xl lg:text-7xl">{weatherToDisplay.temp}</h1>
 				<span className="text-4xl font-light">°</span>
 			</div>
 
 			{/* Icon with date */}
-			<div className="flex justify-center ">
-				<Image
-					width={250}
-					height={250}
-					alt="Weather icon"
-					className="scale-75 sm:scale-90 md:scale-95 lg:scale-100"
-					src={ReturnIcon(weatherToDisplay.weatherCode, props.displayedHour)}
-				/>
-			</div>
+
+			<Image
+				width={250}
+				height={250}
+				alt="Weather icon"
+				className="scale-50 mx-auto -mt-12 md:my-0 -mb-10 sm:scale-75 md:scale-90 lg:scale-100"
+				src={ReturnIcon(weatherToDisplay.weatherCode, props.displayedHour)}
+			/>
 
 			{/* Icon with date */}
-			<div className="flex flex-col md:flex-row gap-x-8 items-center text-md justify-center ">
+			<div className="flex flex-col md:flex-row gap-x-8 items-center text-sm sm:text-md justify-center ">
 				<span className="">Feels like: {weatherToDisplay.apparentTemp}°</span>
 				<span className="">Wind speed: {weatherToDisplay.wind} km/h</span>
 			</div>

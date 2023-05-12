@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import ReturnIcon from "../returnIcon";
 
@@ -20,8 +20,34 @@ export default function HourData(props: any) {
 	const weather: weatherType = props.weather;
 	const hour = props.hour;
 	const [selected, setSelected] = useState(0);
+	const [count, setCount] = useState(window.innerWidth);
 
-	const hourData = weather.temps.slice(hour, hour + 6);
+	useEffect(() => {
+		window.addEventListener("resize", handleCount);
+
+		return () => window.removeEventListener("resize", handleCount);
+
+		function handleCount() {
+			if (window.innerWidth > 2200) {
+				console.log(window.innerWidth);
+				setCount(15);
+			} else if (window.innerWidth > 2000) {
+				setCount(12);
+			} else if (window.innerWidth > 1600) {
+				setCount(10);
+			} else if (window.innerWidth > 1200) {
+				setCount(7);
+			} else if (window.innerWidth > 800) {
+				setCount(6);
+			} else if (window.innerWidth > 600) {
+				setCount(5);
+			} else {
+				setCount(4);
+			}
+		}
+	}, []);
+
+	const hourData = weather.temps.slice(hour, hour + count);
 
 	return (
 		<div className="w-full bottom-0 absolute rounded-3xl flex">
