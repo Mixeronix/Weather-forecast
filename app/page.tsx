@@ -1,5 +1,3 @@
-"use client";
-
 import getData from "@/components/featchData";
 import DayHandler from "./dayHandler";
 
