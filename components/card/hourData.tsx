@@ -66,7 +66,7 @@ export default function HourData(props: any) {
 				>
 					<Image src={ReturnIcon(weather.weathercodes[index + hour], index + hour)} alt="" width={35} height={35} />
 
-					<span className="mt-3 ">{index + hour}:00</span>
+					<span className="mt-3 ">{(index + hour < 10 ? "0" : "") + (index + hour >= 12 ? `${index + hour - 12} pm` : index + hour)} </span>
 					<span className="mb-3 ">{date}°</span>
 				</div>
 			))}
