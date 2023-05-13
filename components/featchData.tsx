@@ -37,7 +37,7 @@ export default async function getData() {
 
 	const res = await fetch(
 		`https://api.open-meteo.com/v1/forecast?latitude=50.82&longitude=19.11&hourly=temperature_2m,apparent_temperature,weathercode,windspeed_10m&daily=weathercode,temperature_2m_max,temperature_2m_min&current_weather=true&past_days=14&forecast_days=16&timezone=auto`,
-		{ cache: "no-store" }
+		{ next: { revalidate: 10 } }
 	);
 
 	if (!res.ok) {
