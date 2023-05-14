@@ -17,7 +17,7 @@ type weatherType = {
 	weathercodes: number[];
 };
 
-export default function WeatherCard(props: any) {
+export default function WeatherCard(props: { weatherData: weatherType; index: number; show: number }) {
 	const date: Date = new Date();
 	const [displayedHour, setDisplayedHour] = useState(date.getHours());
 	const [currentHour, setCurrentHour] = useState(date.getHours());
@@ -39,7 +39,7 @@ export default function WeatherCard(props: any) {
 			${props.index == props.show + 1 || props.index == props.show - 1 ? "scale-60 blur-md" : ""} 
 			${props.index > props.show + 1 || props.index < props.show - 1 ? "scale-0 blur-3xl" : ""}`}
 		>
-			<Data weather={weatherData} place="Czestochowa, Polska" displayedHour={displayedHour} mainView={props.index == props.show} />
+			<Data weather={weatherData} displayedHour={displayedHour} mainView={props.index == props.show} />
 
 			{props.index == props.show && props.index == 14 ? (
 				<HourData weather={weatherData} changeHour={changeHour} hour={currentHour} />

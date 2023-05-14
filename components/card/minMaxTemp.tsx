@@ -16,7 +16,7 @@ function scale(number: number, inMin: number, inMax: number, outMin: number, out
 	return ((number - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
 }
 
-export default function MinMaxTemp(props: any) {
+export default function MinMaxTemp(props: { weather: weatherType }) {
 	const weather: weatherType = props.weather;
 
 	return (

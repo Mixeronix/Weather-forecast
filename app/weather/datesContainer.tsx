@@ -15,7 +15,7 @@ type weatherType = [
 	}
 ];
 
-export default function DatesContainer(props: any) {
+export default function DatesContainer(props: { weatherData: weatherType; day: number; handleDayChange: Function }) {
 	const date: Date = new Date();
 
 	const weatherData: weatherType = props.weatherData;

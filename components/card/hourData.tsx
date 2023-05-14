@@ -16,7 +16,7 @@ type weatherType = {
 	weathercodes: number[];
 };
 
-export default function HourData(props: any) {
+export default function HourData(props: { weather: weatherType; hour: number; changeHour: Function }) {
 	const weather: weatherType = props.weather;
 	const hour = props.hour;
 	const [selected, setSelected] = useState(0);

@@ -17,7 +17,7 @@ type weatherType = {
 
 type displayedWeather = { temp: number; apparentTemp: number; wind: number; weathercode: number };
 
-export default function WeatherOfDay(props: any) {
+export default function WeatherOfDay(props: { mainView: boolean; displayedHour: number; weather: weatherType }) {
 	const weather: weatherType = props.weather;
 
 	const weatherToDisplay: displayedWeather = GetWeatherAtTime(weather, props.displayedHour);

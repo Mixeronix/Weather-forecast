@@ -15,7 +15,7 @@ type weatherType = [
 	}
 ];
 
-export default function CardsContainer(props: any) {
+export default function CardsContainer(props: { weatherData: weatherType; day: number }) {
 	const weatherData: weatherType = props.weatherData;
 
 	return (

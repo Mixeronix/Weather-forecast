@@ -14,7 +14,7 @@ type weatherType = {
 	weathercodes: number[];
 };
 
-export default function DateCard(props: any) {
+export default function DateCard(props: { weatherData: weatherType; index: number; show: number; handleDayChange: Function; hour: number }) {
 	const weatherData: weatherType = props.weatherData;
 
 	const todaysDate = new Date(weatherData.date);
@@ -29,7 +29,7 @@ export default function DateCard(props: any) {
             ${props.index == props.show ? "from-blue-200/[0.5] to-blue-200/[0.3]" : "hover:from-blue-200/[0.25] hover:to-blue-200/[0.1]"}`}
 			style={{ transform: `translate(${105 * (props.index - props.show)}%)`, opacity: `${100 - Math.abs(props.index - props.show) * 20}%` }}
 		>
-			<Image width={50} height={50} alt="Weather icon" className="scale-50 sm:scale-90 -mx-2 sm:mx-auto" src={ReturnIcon(weatherData.weathercode, props.hours)} />
+			<Image width={50} height={50} alt="Weather icon" className="scale-50 sm:scale-90 -mx-2 sm:mx-auto" src={ReturnIcon(weatherData.weathercode, props.hour)} />
 			<span className="text-white text-center text-md sm:text-lg font-medium">{props.index == 14 ? "Today" : day + " " + monthNames[month]}</span>
 		</div>
 	);
