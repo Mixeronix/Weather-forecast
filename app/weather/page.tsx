@@ -15,12 +15,14 @@ type weatherType = [
 	}
 ];
 
-export default async function Home() {
-	const weatherData: weatherType = await getData();
+export default async function Home({ searchParams }: any) {
+	const weatherData: weatherType = await getData(searchParams.longitude, searchParams.latitude);
+
+	console.log(searchParams);
 
 	return (
 		<main className="h-screen w-full bg-blue-950">
-			<DayHandler weatherData={weatherData} />
+			<DayHandler weatherData={weatherData} placeName={searchParams.name} />
 		</main>
 	);
 }
