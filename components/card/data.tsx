@@ -48,7 +48,7 @@ export default function WeatherOfDay(props: any) {
 				height={250}
 				alt="Weather icon"
 				className="scale-50 mx-auto -mt-12 md:my-0 -mb-10 sm:scale-75 md:scale-90 lg:scale-100"
-				src={ReturnIcon(weatherToDisplay.weathercode, props.displayedHour)}
+				src={props.mainView ? ReturnIcon(weatherToDisplay.weathercode, props.displayedHour) : ReturnIcon(weather.weathercode, 12)}
 			/>
 
 			{/* Icon with date */}

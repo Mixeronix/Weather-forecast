@@ -8,7 +8,6 @@ export default function DayHandler(props: any) {
 	const [day, setDay] = useState(14);
 
 	function handleDayChange(newDay: number) {
-		console.log(newDay);
 		setDay(newDay);
 	}
 
