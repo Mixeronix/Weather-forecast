@@ -21,8 +21,6 @@ type weatherType = [
 export default function DayHandler(props: { weatherData: weatherType }) {
 	const [day, setDay] = useState(14);
 
-	console.log(props);
-
 	function handleDayChange(newDay: number) {
 		setDay(newDay);
 	}
