@@ -20,7 +20,7 @@ export default function CountryTile(props: {
 				pathname: "/weather",
 				query: { latitude: props.countryData.latitude, longitude: props.countryData.longitude, name: props.countryData.name + ", " + props.countryData.country },
 			}}
-			className="flex gap-x-5 hover:bg-blue-100/60 w-full bg-blue-100/80 border-2 mb-0.5  m-auto border-white px-7 py-3 rounded-2xl text-xl"
+			className="items-center flex gap-x-5 hover:backdrop-blur-md hover:bg-white/60 transition-all duration-500 w-full glassBackground mb-1 m-auto px-5 sm:px-7 py-3 sm:py-5 rounded-xl text-md sm:text-xl"
 		>
 			<Image
 				src={`https://hatscripts.github.io/circle-flags/flags/${props.countryData.country_code.toLowerCase()}.svg`}

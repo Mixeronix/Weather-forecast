@@ -21,7 +21,7 @@ export default async function Home({ searchParams }: any) {
 	console.log(searchParams);
 
 	return (
-		<main className="h-screen w-full bg-blue-950">
+		<main className="h-screen w-full bg-[url('https://images.pexels.com/photos/1431822/pexels-photo-1431822.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')]">
 			<DayHandler weatherData={weatherData} placeName={searchParams.name} />
 		</main>
 	);
