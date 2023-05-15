@@ -18,8 +18,6 @@ type weatherType = [
 export default async function Home({ searchParams }: any) {
 	const weatherData: weatherType = await getData(searchParams.longitude, searchParams.latitude);
 
-	console.log(searchParams);
-
 	return (
 		<main className="h-screen w-full bg-[url('https://images.pexels.com/photos/1431822/pexels-photo-1431822.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')]">
 			<DayHandler weatherData={weatherData} placeName={searchParams.name} />
