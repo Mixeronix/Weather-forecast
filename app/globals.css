@@ -52,7 +52,7 @@
 
 .glassBackground {
 	/* From https://css.glass */
-	background: rgba(255, 255, 255, 0.3);
+	background: rgba(220, 220, 220, 0.3);
 
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 	backdrop-filter: blur(10px);
@@ -67,4 +67,26 @@
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 	backdrop-filter: blur(5.3px);
 	-webkit-backdrop-filter: blur(5.3px);
+}
+
+.hoverGlassBackground {
+	/* From https://css.glass */
+	background: rgba(220, 220, 220, 0.1);
+
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+
+	transition: ease-out all 0.3s;
+}
+
+.hoverGlassBackground:hover {
+	/* From https://css.glass */
+	background: rgba(220, 220, 220, 0.3);
+
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.56);
 }

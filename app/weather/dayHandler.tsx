@@ -30,7 +30,7 @@ export default function DayHandler(props: { weatherData: weatherType; placeName:
 		<>
 			<Link
 				href="/"
-				className="hover:bg-white text-white text-xl sm:text-2xl font-semibold absolute top-8 sm:top-12 md:top-16 w-fit transition-all left-1/2 -translate-x-1/2 rounded-lg py-2 px-4 duration-500 hover:text-gray-800 text-center"
+				className="hoverGlassBackground text-white text-xl sm:text-2xl font-semibold absolute top-8 sm:top-12 md:top-16 w-fit transition-all left-1/2 -translate-x-1/2 rounded-lg py-2 px-4"
 			>
 				{props.placeName}
 			</Link>
